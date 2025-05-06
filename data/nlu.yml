@@ -1,0 +1,138 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - สวัสดี
+      - สวัสดีครับ
+      - สวัสดีค่ะ
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremely sad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+  - intent: product_list
+    examples: |
+      - What products do you have?
+      - Show me your products
+      - What products are available?
+      - รายการสินค้าที่มี
+      - คุณมีสินค้าชนิดไหนบ้าง
+      - โปรดแสดงรายการสินค้า
+
+  - intent: product_inquiry
+    examples: |
+      - Tell me more about Fiber 4G
+      - What is the price of Fiber 4G?
+      - Tell me about Wireless Router
+      - ขอบคุณสำหรับข้อมูลเกี่ยวกับสินค้า
+      - ราคาของ Fiber 4G เป็นเท่าไหร่
+      - สินค้า Fiber 4G เป็นยังไงบ้าง
+
+  - intent: ask_product_detail
+    examples: |
+      - 1
+      - 2
+      - 3
+      - no.1
+      - no.2
+      - product 1
+      - product 2
+      - show product 1
+      - show me product 2
+      - fiber
+      - fiber 4g
+      - fiber 5g
+      - I want details of fiber
+      - give me details for 1
+      - show 1 and 2
+      - 1,2
+      - show fiber and router
+      - wireless router
+      - I want details of [1](product_number)
+      - Show me [2](product_number)
+      - Show me [1,2](product_number)
+      - no.[3](product_number)
+      - [fiber](product_name)
+      - [fiber 4g](product_name)
+  - lookup: product_name
+    examples: |
+      - 1
+      - 2
+      - 3
+      - fiber
+      - fiber 4g
+      - fiber 5g
+      - wireless router
+

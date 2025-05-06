@@ -1,0 +1,63 @@
+# Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Rasa files
+*.db
+*.sqlite
+*.tar.gz
+*.log
+*.zip
+*.bak
+
+# Model checkpoints and logs
+models/
+logs/
+
+# Rasa specific config files (optional but recommended to ignore)
+*.yml~
+
+# Virtual environment directories
+venv/
+env/
+.env/
+.venv/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Rasa Action Server files
+action_data/
+__init__.py
+actionserver.pid
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Docker & Kubernetes related files
+docker-compose.override.yml
+Dockerfile*
+*.env
+
+# Test coverage reports
+.coverage
+*.cover
+*.tox
+*.nox
+*.coverage
+.coverage.*
+*.hypothesis/
+
+# Other possible ignored files (that you might use)
+*.log
+*.csv
+*.tsv
+

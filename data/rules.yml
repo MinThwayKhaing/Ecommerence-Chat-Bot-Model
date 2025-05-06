@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Show product list anytime the user asks for products
+    steps:
+      - intent: product_list
+      - action: utter_product_list
+
+  - rule: Inquire about a product
+    steps:
+      - intent: product_inquiry
+      - action: utter_product_inquiry
+
+  - rule: respond to product detail inquiry
+    steps:
+      - intent: ask_product_detail
+      - action: action_product_detail  
+

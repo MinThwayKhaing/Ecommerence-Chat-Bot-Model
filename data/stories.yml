@@ -1,0 +1,27 @@
+version: "3.1"
+
+stories:
+  - story: Greet and show product list
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: product_list
+      - action: utter_product_list
+
+  - story: Inquire about Fiber 4G
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: product_inquiry
+      - action: utter_product_inquiry
+
+  - story: Greet and say goodbye
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: goodbye
+      - action: utter_goodbye
+  - story: User asks for product detail
+    steps:
+      - intent: ask_product_detail
+      - action: action_product_detail
