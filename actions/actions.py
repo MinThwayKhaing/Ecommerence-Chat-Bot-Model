@@ -1,14 +1,15 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+import json
 
 PRODUCTS = {
-    "1": "Fiber 4G - Available, Price: $50",
-    "2": "Fiber 5G - Out of Stock, Price: $70",
-    "3": "Wireless Router - Available, Price: $30",
-    "fiber 4g": "Fiber 4G - Available, Price: $50",
-    "fiber 5g": "Fiber 5G - Out of Stock, Price: $70",
-    "wireless router": "Wireless Router - Available, Price: $30",
+    "1": {"name": "Fiber 4G", "availability": "Available", "price": 50},
+    "2": {"name": "Fiber 5G", "availability": "Out of Stock", "price": 70},
+    "3": {"name": "Wireless Router", "availability": "Available", "price": 30},
+    "fiber 4g": {"id": "1", "name": "Fiber 4G", "availability": "Available", "price": 50},
+    "fiber 5g": {"id": "2", "name": "Fiber 5G", "availability": "Out of Stock", "price": 70},
+    "wireless router": {"id": "3", "name": "Wireless Router", "availability": "Available", "price": 30},
 }
 
 class ActionProductDetail(Action):
@@ -22,19 +23,24 @@ class ActionProductDetail(Action):
         entities = tracker.latest_message.get("entities", [])
         found_products = []
 
-        # Loop through the entities and match based on partial input
         for entity in entities:
             value = entity.get("value", "").lower().strip()
+            product = PRODUCTS.get(value)
 
-            # Check for partial matches (substring match) in product names
-            for product_key, product_value in PRODUCTS.items():
-                if value in product_key:  # If the value is found as part of the product key
-                    found_products.append(product_value)
+            if product:
+                found_products.append(product)
+            else:
+                for key, product_details in PRODUCTS.items():
+                    if value in key and isinstance(key, str):
+                        found_products.append(product_details)
 
-        # Return the product details if found, otherwise inform the user
         if not found_products:
             dispatcher.utter_message(text="Sorry, I couldn't find product details.")
         else:
-            dispatcher.utter_message(text="\n".join(found_products))
+            # Only send structured JSON response
+            json_response = {
+                "products": found_products
+            }
+            dispatcher.utter_message(text=json.dumps(json_response, indent=2))
 
         return []

@@ -1,0 +1,6 @@
+[
+  {
+    "name": "product_name",
+    "pattern": "(\\b1\\b|\\b2\\b|\\b3\\b|\\bfiber\\b|\\bfiber\\ 4g\\b|\\bfiber\\ 5g\\b|\\bwireless\\ router\\b)"
+  }
+]
